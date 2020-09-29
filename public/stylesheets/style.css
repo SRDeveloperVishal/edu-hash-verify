@@ -1,0 +1,13 @@
+body{
+    background: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    
+}
+h1{
+        font-family: 'Nunito', sans-serif!important;
+    }
+.hashsetting{
+    font-size: 12px;
+    overflow: hidden;
+} 

@@ -1,0 +1,36 @@
+doctype html
+head
+  title verify your hash
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, user-scalable=no')
+  link(rel="stylesheet", href="../stylesheets/style.css")
+  link(href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet")
+  link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous")
+  
+   
+body 
+ div(class='container')
+  div(class='row mt-5')
+   div(class='col-md-3')
+   
+   div(class='col-md-6 border setting rounded-lg bg-white shadow')
+     img(src='../tx/images/avatar.jpg' class='rounded-circle mx-auto d-block mt-3' alt='user-image not found !')
+     div(class='row mt-3')
+      div(class='col-md-12 text-center')
+       h1=output
+       p(class='font-weight-bold') Transaction Hash:
+       p(class='hashsetting')=txNo
+       div(class='row')
+        div(class='col-md-6 text-right font-weight-bold bg-white')
+         p Block Number :-
+        div(class='col-md-6 text-left')
+         p=blockNumber
+   div(class='col-md-3')
+script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
+script(src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous")
+script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous")
+script.
+  if ('addEventListener' in window) {
+  window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\\bis-preload\b/, ''); });
+  document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\\.0)/) ? ' is-ie' : '');
+  }
