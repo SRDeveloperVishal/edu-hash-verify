@@ -11,3 +11,6 @@ h1{
     font-size: 12px;
     overflow: hidden;
 } 
+.verify-syb iframe{
+ margin: 0px;
+}
