@@ -14,7 +14,7 @@ body
    div(class='col-md-3')
    
    div(class='col-md-6 border setting rounded-lg bg-white shadow')
-     iframe(src='https://giphy.com/embed/PijzuUzUhm7hcWinGn' class='mx-auto d-block mt-3' frameBorder="0" alt='user-image not found !')
+     iframe(src='/tx/images/verified.gif' class='mx-auto d-block mt-3' frameBorder="0" alt='user-image not found !')
      div(class='row mt-3')
       div(class='col-md-12 text-center')
        h1=output
@@ -25,6 +25,8 @@ body
          p Block Number :-
         div(class='col-md-6 text-left verify-syb')
          p(class='mb-0')=blockNumber
+       p(class='font-weight-bold') Contract Hash:
+       p(class='hashsetting')=contractAddress
         //-  iframe(src="https://giphy.com/embed/PijzuUzUhm7hcWinGn" class='mt-0' width="auto" height="auto" frameBorder="0" class="giphy-embed" allowFullScreen)
    div(class='col-md-3')
 script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous")
