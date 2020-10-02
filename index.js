@@ -9,7 +9,7 @@ const app = express();
 
 // initialize web3
 const web3_provider_host =
-  process.env.PRODUCTION_WEB3_PROVIDER_HOST || "http://ec2-13-212-121-244.ap-southeast-1.compute.amazonaws.com";
+  process.env.PRODUCTION_WEB3_PROVIDER_HOST || "http://blockchain.rxdp.in";
 const web3_provider_port = process.env.PRODUCTION_WEB3_PROVIDER_PORT || 8545;
 const provider = `${web3_provider_host}:${web3_provider_port}`;
 
