@@ -8,78 +8,14 @@ const { response } = require('express');
 const app = express();
 
 // initialize web3
-const web3_provider_host =
-  process.env.PRODUCTION_WEB3_PROVIDER_HOST || "http://blockchain.rxdp.in";
-const web3_provider_port = process.env.PRODUCTION_WEB3_PROVIDER_PORT || 8545;
-const provider = `${web3_provider_host}:${web3_provider_port}`;
+// const web3_provider_host =
+//   process.env.PRODUCTION_WEB3_PROVIDER_HOST || "http://52.221.191.137";
+// const web3_provider_port = process.env.PRODUCTION_WEB3_PROVIDER_PORT || 80;
+// const provider = `${web3_provider_host}:${web3_provider_port}`;
 
-const web3 = new Web3(new Web3.providers.HttpProvider(provider));
+const web3 = new Web3(new Web3.providers.HttpProvider('http://blockchain.rxdp.in:8545'));
 
-const CertificateStoreABI = [
-    {
-      "anonymous": false,
-      "inputs": [
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "certificateId",
-          "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "indexed": false,
-          "internalType": "uint256",
-          "name": "id",
-          "type": "uint256"
-        }
-      ],
-      "name": "NewCertificate",
-      "type": "event"
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "certificates",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "internalType": "uint256",
-          "name": "id",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_name",
-          "type": "string"
-        }
-      ],
-      "name": "createRandomCertificate",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    }
-  ];
+const CertificateStoreABI = [{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"certificateId","type":"uint256"},{"indexed":false,"internalType":"string","name":"name","type":"string"},{"indexed":false,"internalType":"string","name":"instituteName","type":"string"},{"indexed":false,"internalType":"uint256","name":"id","type":"uint256"}],"name":"NewCertificate","type":"event"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"certificates","outputs":[{"internalType":"string","name":"name","type":"string"},{"internalType":"string","name":"instituteName","type":"string"},{"internalType":"uint256","name":"id","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_instituteName","type":"string"}],"name":"createRandomCertificate","outputs":[],"stateMutability":"nonpayable","type":"function"}];
 
 abiDecoder.addABI(CertificateStoreABI);
 
@@ -96,7 +32,7 @@ app.get('/tx/:txNo', (req, res) => {
             console.log(data)
             const decodedData = abiDecoder.decodeMethod(data.input);
             console.log(decodedData.params[0].value)
-            res.render('tx', { txNo: tx, output: decodedData.params[0].value, blockNumber: data.blockNumber, contractAddress: data.to });
+            res.render('tx', { txNo: tx, output: decodedData.params[0].value, instituteName: decodedData.params[1].value, blockNumber: data.blockNumber, contractAddress: data.to });
         });
     } else {
         res.render('tx', { txNo: 'Unknown Tx No.' });
