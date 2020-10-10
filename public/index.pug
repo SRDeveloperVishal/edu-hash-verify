@@ -28,6 +28,6 @@ html(lang="en")
 			script.
 				function changeText2() {
 				var userInput = document.getElementById('userInput').value;
-				window.location = "http://127.0.0.1:" + #{env.PORT} + "/tx/" + userInput;
+				window.location.href = '/tx/' + userInput;
 				}
 			script(color="184, 189, 196" opacity=".3" zindex="-2" count="150" src="javascripts/canvas-nest.js-master/dist/canvas-nest.js")
