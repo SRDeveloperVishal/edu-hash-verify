@@ -31,7 +31,6 @@ app.get('/tx/:txNo', (req, res) => {
     console.log(tx);
     if (tx != null && tx != "") {
         web3.eth.getTransaction(tx).then(data => {
-            console.log(data)
             const decodedData = abiDecoder.decodeMethod(data.input);
             console.log(decodedData.params[0].value)
             res.render('tx', { txNo: tx, output: decodedData.params[0].value, instituteName: decodedData.params[1].value, blockNumber: data.blockNumber, contractAddress: data.to });
