@@ -31,16 +31,18 @@ body {
   background-size: cover;
   opacity: 1;
   height: 100%;
+  padding: 20px;
 
 }
 
 
 #myVideo{
-	position: absolute;
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
 	top: 0;
 	left: 0;
-	min-width: 100%;
-	min-height: 100%;
 	z-index: -1;
 }
 
