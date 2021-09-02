@@ -10,21 +10,21 @@ services:
     ports: 
       - 5050:5050
   
-  caddy:
-    image: caddy/caddy:2.4.3-alpine
-    container_name: caddy-service
-    restart: always
-    ports: 
-      - 80:80
-      - 443:443
-    volumes:
-      - $PWD/Caddyfile:/etc/caddy/Caddyfile
-      - $PWD/site:/srv
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on: 
-      - node-app
+#  caddy:
+#    image: caddy/caddy:2.4.3-alpine
+#    container_name: caddy-service
+#    restart: always
+#    ports: 
+#      - 80:80
+#      - 443:443
+#    volumes:
+#      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+#      - $PWD/site:/srv
+#      - caddy_data:/data
+#      - caddy_config:/config
+#    depends_on: 
+#      - node-app
 
-volumes: 
-  caddy_data:
-  caddy_config:
+# volumes: 
+#  caddy_data:
+#  caddy_config:
